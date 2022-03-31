@@ -1,0 +1,7 @@
+{
+  "name": "ramApp",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
