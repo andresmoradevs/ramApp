@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title> <span class="text-danger">Personajes</span> Rick <span class="text-danger">&</span> Morty</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid fixed>
+    <ion-row>
+      
+      <ion-col>
+
+        <ion-card button *ngFor="let item of characters" [routerLink]="[item.id]">
+          <!-- Image -->
+          <ion-img [src]="item.image" ></ion-img>
+          <!-- Card Header -->
+          <ion-card-header>
+            <ion-card-subtitle>{{ item.created | date:'y' }}</ion-card-subtitle>
+            <ion-card-title>{{ item.name }}</ion-card-title>
+          </ion-card-header>
+          <!-- Card Content -->
+          <ion-card-content>
+            <p>{{ item.species }}</p>
+          </ion-card-content>
+          <ion-badge slot="end"> {{ item.vote_average }} </ion-badge>
+        </ion-card>
+
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-infinite-scroll (ionInfinite)="loadMore($event)">
+    <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Cargando más personajes..."> </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>
