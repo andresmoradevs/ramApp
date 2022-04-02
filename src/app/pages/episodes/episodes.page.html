@@ -1,11 +1,11 @@
 <ion-header>
   <ion-toolbar>
-
+    <!-- Back button and title of the current view -->
     <ion-buttons slot="start">
       <ion-back-button class="text-red" defaultHref="/characters"></ion-back-button>
       <ion-title>Episode information</ion-title>
     </ion-buttons>
-
+    <!-- Button to return to the home page -->
     <ion-buttons slot="end">
       <ion-title routerLink="/characters" >Home</ion-title>
       <ion-avatar>
@@ -18,7 +18,7 @@
 
 <ion-content>
   <ion-card *ngFor="let episode of episode">
-
+    <!-- Info of character -->
     <ion-card-header>
       <ion-card-title>Episode Name: {{ episode.name }}</ion-card-title>
       <ion-card-subtitle>Release date: {{ episode.air_date }}</ion-card-subtitle>

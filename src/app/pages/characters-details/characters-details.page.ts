@@ -14,7 +14,6 @@ export class CharactersDetailsPage implements OnInit {
   // Declared Variables
   character = null;
   characterId = 0;
-  episode = [];
   episodes = [];
 
   constructor(
@@ -23,13 +22,16 @@ export class CharactersDetailsPage implements OnInit {
         private characterService: CharacterService) { }
 
   ngOnInit() {
+    // Id of the pardon loaded
     const id = this.route.snapshot.paramMap.get('id');
+    // Service to get character with received id
     this.characterService.getCharacterDetails(id).subscribe((res) => {
       this.character = res;
       this.characterId = res.id;
       this.episodes = res.episode;
     });
   }
+  // Method to send character id to next view
   viewEpisodeDetails(episodes) {
     sessionStorage.setItem('episodeSelected', episodes);
     this.nav.navigateForward('/episodes');

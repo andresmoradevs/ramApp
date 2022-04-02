@@ -16,12 +16,13 @@ export interface ApiResult {
 export class CharacterService {
 
   constructor(private http: HttpClient) { }
-
+  // Method to get characters per page in the service
   getTopRatedCharacters(page = 1): Observable<ApiResult> {
     return this.http.get<ApiResult>(
       `${environment.baseUrlApi}/?page=${page}`
     );
   }
+  // Method to obtain details of each character
   getCharacterDetails(id: string): Observable<any> {
     return this.http.get<ApiResult>(
       `${environment.baseUrlApi}/${id}`

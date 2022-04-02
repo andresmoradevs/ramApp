@@ -9,7 +9,7 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./characters.page.scss'],
 })
 export class CharactersPage implements OnInit {
-
+  // Declared variables
   characters = [];
   currentPage = 1;
   imageBaseUrl = environment.images;
@@ -21,13 +21,14 @@ export class CharactersPage implements OnInit {
   ngOnInit() {
     this.loadCharacters();
   }
+  // Message is launched through the received event
   async loadCharacters(event?: InfiniteScrollCustomEvent) {
     const loading = await this.loadingCtrl.create({
       message: 'Cargando..',
       spinner: 'bubbles',
     });
     await loading.present();
-
+    // Event for current page
     this.characterService.getTopRatedCharacters(this.currentPage).subscribe(
       (res) => {
         loading.dismiss();
@@ -44,8 +45,8 @@ export class CharactersPage implements OnInit {
       }
     );
   }
-
-  loadMore(event: InfiniteScrollCustomEvent) {
+  // Event to load more data
+  loadMore(event) {
     this.currentPage++;
     this.loadCharacters(event);
   }

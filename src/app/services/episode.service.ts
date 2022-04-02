@@ -15,12 +15,13 @@ export interface ApiResult {
 export class EpisodeService {
 
   constructor(private http: HttpClient) { }
-
+// Method to get episodes per page in the service
   getTopRatedEpisodes(page = 1): Observable<ApiResult> {
     return this.http.get<ApiResult>(
       `${environment.episodes}/?page=${page}`
     );
   }
+  // Method to obtain details of each episode
   getEpisodeDetails(id: string): Observable<any> {
     return this.http.get<ApiResult>(
       `${environment.episodes}/${id}`
