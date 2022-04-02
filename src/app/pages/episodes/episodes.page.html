@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar>
+
+    <ion-buttons slot="start">
+      <ion-back-button class="text-red" defaultHref="/characters"></ion-back-button>
+      <ion-title>Episode information</ion-title>
+    </ion-buttons>
+
+    <ion-buttons slot="end">
+      <ion-title routerLink="/characters" >Home</ion-title>
+      <ion-avatar>
+        <img src="https://w7.pngwing.com/pngs/277/446/png-transparent-rick-and-morty-illustratrion-rick-sanchez-morty-smith-rick-and-morty-season-1-television-show-youtube-rick-and-morty-television-logo-computer-wallpaper.png">
+      </ion-avatar>
+    </ion-buttons>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card *ngFor="let episode of episode">
+
+    <ion-card-header>
+      <ion-card-title>Episode Name: {{ episode.name }}</ion-card-title>
+      <ion-card-subtitle>Release date: {{ episode.air_date }}</ion-card-subtitle>
+      <p><ion-label>Creation date: {{ episode.created | date: 'y/M/dd' }} </ion-label></p>
+      <p><ion-label>Episode: {{ episode.episode }} </ion-label></p>
+    </ion-card-header>
+
+
+  </ion-card>
+
+</ion-content>

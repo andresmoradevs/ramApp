@@ -1,9 +1,67 @@
+<!-- Navigation bar with name of the selected character and button to return to the previous page -->
 <ion-header>
   <ion-toolbar>
-    <ion-title>charactersDetails</ion-title>
+
+    <ion-buttons slot="start">
+      <ion-back-button class="text-red" defaultHref="/characters"></ion-back-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-title routerLink="/characters" >Home</ion-title>
+      <ion-avatar>
+        <img src="https://w7.pngwing.com/pngs/277/446/png-transparent-rick-and-morty-illustratrion-rick-sanchez-morty-smith-rick-and-morty-season-1-television-show-youtube-rick-and-morty-television-logo-computer-wallpaper.png">
+      </ion-avatar>
+    </ion-buttons>
+
+    <ion-title class="text-red">{{ character?.name }}</ion-title>
+
   </ion-toolbar>
 </ion-header>
 
+<!-- In the content of the card is the information of each character -->
 <ion-content>
+  <ion-card *ngIf="character as character">
+
+    <img [src]="character.image" />
+
+    <ion-card-header>
+      <ion-card-title> {{ character.name }} </ion-card-title>
+      <ion-card-subtitle> {{ character.species }} </ion-card-subtitle>
+      <p>
+        <ion-icon class="text-red" name="calendar-number-outline"></ion-icon>
+        <ion-label>{{ character.created | date: 'y/M/dd'}}</ion-label>
+      </p>
+      <p>
+        <ion-icon class="text-red" name="planet-outline"></ion-icon>
+        <ion-label>{{ character.location.name}}</ion-label>
+      </p>
+      <p>
+        <ion-icon class="text-red" name="transgender-outline"></ion-icon>
+        <ion-label>{{ character.gender }}</ion-label>
+      </p>
+    </ion-card-header>
+    
+  </ion-card>
+
+  <ion-item-divider></ion-item-divider>
+
+  <!-- List of episodes -->
+  <ion-card>
+
+    <ion-item>
+      <ion-icon class="text-red" name="apps-outline"></ion-icon>
+      <ion-label>Episodes where {{ character?.name }} appears</ion-label>
+    </ion-item>
+
+    <ion-list>
+
+      <ion-item *ngFor="let episode of episodes">
+        <ion-label (click)="viewEpisodeDetails(episode)">
+          <h2>{{ episode }}</h2>
+        </ion-label>
+      </ion-item>
+
+    </ion-list>
+
+  </ion-card>
 
 </ion-content>

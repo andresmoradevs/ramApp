@@ -1,0 +1,13 @@
+// Dispositivos escritorio
+ion-avatar {
+  margin: 5px;
+  padding: 5px;
+}
+ion-icon {
+  margin-right: 10px;
+}
+@media screen and (min-width: 768px) {
+  ion-card-content {
+    display: flex;
+  }
+}

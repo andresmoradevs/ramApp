@@ -1,5 +1,23 @@
-// ion-img {
-//   width: 200px;
-//   height: 150px;
-//   object-fit: cover;
-// }
+// Dispositivos escritorio
+ion-avatar {
+  margin: 5px;
+  padding: 5px;
+}
+ion-card {
+  width: 120px;
+  ion-card-title {
+    font-size: 0.8rem;
+  }
+}
+// Dispositivos moviles
+@media screen and (max-width: 768px) {
+  ion-row {
+    align-content: center;
+  }
+
+  ion-card {
+    width: 80%;
+  }
+}
+
+

@@ -5,7 +5,8 @@
 export const environment = {
   production: false,
     baseUrlApi: 'https://rickandmortyapi.com/api/character/',
-    images: 'https://rickandmortyapi.com/api/character/avatar/'
+    images: 'https://rickandmortyapi.com/api/character/avatar/',
+    episodes: 'https://rickandmortyapi.com/api/episode/'
 };
 
 /*
